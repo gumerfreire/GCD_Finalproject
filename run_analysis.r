@@ -64,20 +64,10 @@ for (i in c(1:6)) {
 }
 
 
-# POINT 4 OF PROJECT. TIDY DATA SET
-# Write data to text file
+# Select variables for mean and std data and summarize data set
+complete_table <- complete_table %>% select(subject, activity, contains("mean"), contains("std"))
+summary_table <- complete_table %>%   group_by(subject, activity) %>%   summarise_all(funs(mean))
+
+
+# Export final file
 write.table(complete_table, "TidyData.txt", row.name=FALSE)
-
-
-# ------------------------------------------------------------------
-# POINT 5 OF PROJECT. MEAN & STD SUMMARY OF DATA SET
-
-# Remove duplicate labels in table. This point needs to be clarified with the
-# dataset. ¿Are duplicate variable names algo duplicate data or does it exist
-# any problem with variable names in the original dataset?
-complete_table <-complete_table[,unique(names(complete_table))]
-# This operation is necessary in order to group the data.
-
-# Summarize data according to point 5 of project
-complete_table %>% group_by(subject,activity) %>% summarise_all(mean, std)
-
