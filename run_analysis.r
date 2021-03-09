@@ -66,7 +66,7 @@ for (i in c(1:6)) {
 
 
 # Select variables for mean and std data and summarize data set
-complete_table <- complete_table %>% select(subject, activity, contains("mean"), contains("std"))
+complete_table <- complete_table %>% select(subject, activity, contains("mean"))
 summary_table <- complete_table %>%   group_by(subject, activity) %>%   summarise_all(funs(mean))
 
 
