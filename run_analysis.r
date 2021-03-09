@@ -1,5 +1,6 @@
 # Getting and cleaning data project
 # Gumer Freire
+#v.02
 
 # Script to perform data processing
 # It is assumed that the data is in a "/dataset" subfolder of working directory
